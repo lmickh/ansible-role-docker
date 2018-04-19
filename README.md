@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Installs Docker.
+Installs Docker and `docker-py`.
 
 Requirements
 ------------
@@ -11,7 +11,10 @@ None
 Role Variables
 --------------
 
-None
+```
+docker_enabled: true
+docker_opts: ""
+```
 
 Dependencies
 ------------
@@ -21,14 +24,17 @@ None
 Example Playbook
 ----------------
 
-    - name: centos_servers
+    - name: servers
+      vars:
+        docker_opts: "--log-opt max-size=500m --log-opt max-file=3"
       roles:
         - {{ lmickh.docker }}
 
 TODO
 ----
 
-Add daemon OPTS
+Greater distro support
+Daemon config
 
 License
 -------

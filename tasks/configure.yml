@@ -1,0 +1,21 @@
+- name: Create Docker drop-in directory
+  become: true
+  file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
+    mode: 0755
+
+- name: Configure Docker opts drop-in
+  become: true
+  template:
+    dest: "/etc/systemd/system/docker.service.d/10-dockeropts.conf"
+    src: "templates/10-dockeropts.conf.j2"
+    mode: 0664
+
+- name: Enable Docker service
+  become: true
+  service:
+    name: "docker.service"
+    state: started
+    enabled: yes
+  when: docker_enabled

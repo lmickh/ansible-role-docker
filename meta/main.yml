@@ -3,10 +3,11 @@ galaxy_info:
   author: lmickh
   description: Install Docker
   license: MIT
-  min_ansible_version: 2.0
+  min_ansible_version: 2.4
   platforms:
     - name: EL
       versions:
         - 7
+    - name: CoreOS
   galaxy_tags:
     - docker
