@@ -1,4 +1,4 @@
-Role Name
+Docker
 =========
 
 Installs Docker and `docker-py`.
