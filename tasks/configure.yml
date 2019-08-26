@@ -11,6 +11,7 @@
     dest: "/etc/systemd/system/docker.service.d/10-dockeropts.conf"
     src: "templates/10-dockeropts.conf.j2"
     mode: 0664
+  notify: restart docker
 
 - name: Enable Docker service
   become: true

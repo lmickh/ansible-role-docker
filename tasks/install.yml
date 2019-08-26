@@ -1,9 +1,14 @@
 ---
-- name: Install Docker packages
+- name: Install Docker packages for Redhat
   become: yes
   yum:
-    name: "{{ item }}"
+    name: docker
     state: present
-  with_items:
-    - docker
   when: ansible_os_family == 'RedHat'
+
+- name: Install Docker packags for Debian
+  become: yes
+  apt:
+    name: docker.io
+    state: present
+  when: ansible_os_family == 'Debian'
