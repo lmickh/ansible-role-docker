@@ -13,6 +13,14 @@
     mode: 0664
   notify: restart docker
 
+- name: Configure Docker daemon.json file
+  become: true
+  template:
+    dest: "/etc/docker/daemon.json"
+    src: "templates/daemon.json.j2"
+    mode: 0660
+  notify: restart docker
+  
 - name: Enable Docker service
   become: true
   service:
